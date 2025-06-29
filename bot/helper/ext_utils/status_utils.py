@@ -283,18 +283,18 @@ async def get_readable_message(sid, is_user, page_no=1, status="All", page_step=
 
     msg += "⌬ <b><u>Bot Stats</u></b>"
     buttons = ButtonMaker()
+
+# Add navigation and refresh buttons in the desired order
+if len(tasks) > STATUS_LIMIT:
+    buttons.data_button("<<", f"status {sid} pre", position="header")
     
-    # תמיד מוסיף את כפתור הרענון
-    buttons.data_button("♻️ Refresh", f"status {sid} ref", position="header")
-    
-    # מוסיף את חצי הדפים רק אם יש יותר מדף אחד
-    if len(tasks) > STATUS_LIMIT:
-        msg += f"<b>Page:</b> {page_no}/{pages} | <b>Tasks:</b> {tasks_no} | <b>Step:</b> {page_step}\n"
-        buttons.data_button("<<", f"status {sid} pre", position="header")
-        buttons.data_button(">>", f"status {sid} nex", position="header")
-    
-    # בניית התפריט עם עד 3 כפתורים: חץ שמאל, רענון, חץ ימין
-    button = buttons.build_menu(3)
+buttons.data_button("♻️ Refresh", f"status {sid} ref", position="header")
+
+if len(tasks) > STATUS_LIMIT:
+    buttons.data_button(">>", f"status {sid} nex", position="header")
+
+# Build menu with exactly 3 buttons in the header
+button = buttons.build_menu(3)
     
     msg += f"\n┟ <b>CPU</b> → {cpu_percent()}% | <b>F</b> → {get_readable_file_size(disk_usage(DOWNLOAD_DIR).free)} [{round(100 - disk_usage(DOWNLOAD_DIR).percent, 1)}%]"
     msg += f"\n┖ <b>RAM</b> → {virtual_memory().percent}% | <b>UP</b> → {get_readable_time(time() - bot_start_time)}"
