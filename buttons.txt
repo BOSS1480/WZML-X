@@ -1,1 +1,1 @@
-📥 view - https://t.me/{TgClient.BNAME}
+📥 view https://t.me/{TgClient.BNAME}
