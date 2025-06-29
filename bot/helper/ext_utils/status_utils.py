@@ -288,10 +288,10 @@ async def get_readable_message(sid, is_user, page_no=1, status="All", page_step=
     if len(tasks) > STATUS_LIMIT:
         msg += f"<b>Page:</b> {page_no}/{pages} | <b>Tasks:</b> {tasks_no} | <b>Step:</b> {page_step}\n"
         buttons.data_button("⫷", f"status {sid} pre", position="header")
-        buttons.data_button("♻️ Refresh", f"status {sid} ref", position="header")
+        buttons.data_button("♻️", f"status {sid} ref", position="header")
         buttons.data_button("⫸", f"status {sid} nex", position="header")
     else:
-        buttons.data_button("♻️ Refresh", f"status {sid} ref", position="header")
+        buttons.data_button("♻️", f"status {sid} ref", position="header")
     
     # בניית התפריט עם 3 כפתורים בשורה
     button = buttons.build_menu(3)
