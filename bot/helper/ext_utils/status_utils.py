@@ -284,18 +284,16 @@ async def get_readable_message(sid, is_user, page_no=1, status="All", page_step=
     msg += "⌬ <b><u>Bot Stats</u></b>"
     buttons = ButtonMaker()
     
-    
-    # מוסיף את חצי הדפים רק אם יש יותר מדף אחד
+    # הוספת הכפתורים לפי הסדר המבוקש
     if len(tasks) > STATUS_LIMIT:
-    msg += f"<b>Page:</b> {page_no}/{pages} | <b>Tasks:</b> {tasks_no} | <b>Step:</b> {page_step}\n"
-    buttons.data_button("<<", f"status {sid} pre", position="header")
-    buttons.data_button("♻️ Refresh", f"status {sid} ref", position="header")  # הוספת הרענון בין החצים
-    buttons.data_button(">>", f"status {sid} nex", position="header")
-else:
-    buttons.data_button("♻️ Refresh", f"status {sid} ref", position="header")  # רענון בלבד אם אין דפים נוספים
-
-button = buttons.build_menu(3)  # בניית התפריט עם 3 כפתורים בשורה    
-    # בניית התפריט עם עד 3 כפתורים: חץ שמאל, רענון, חץ ימין
+        msg += f"<b>Page:</b> {page_no}/{pages} | <b>Tasks:</b> {tasks_no} | <b>Step:</b> {page_step}\n"
+        buttons.data_button("⫷", f"status {sid} pre", position="header")
+        buttons.data_button("♻️ Refresh", f"status {sid} ref", position="header")
+        buttons.data_button("⫸", f"status {sid} nex", position="header")
+    else:
+        buttons.data_button("♻️ Refresh", f"status {sid} ref", position="header")
+    
+    # בניית התפריט עם 3 כפתורים בשורה
     button = buttons.build_menu(3)
     
     msg += f"\n┟ <b>CPU</b> → {cpu_percent()}% | <b>F</b> → {get_readable_file_size(disk_usage(DOWNLOAD_DIR).free)} [{round(100 - disk_usage(DOWNLOAD_DIR).percent, 1)}%]"
