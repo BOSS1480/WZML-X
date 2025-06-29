@@ -284,7 +284,6 @@ async def get_readable_message(sid, is_user, page_no=1, status="All", page_step=
     msg += "⌬ <b><u>Bot Stats</u></b>"
     buttons = ButtonMaker()
     
-    # הוספת הכפתורים לפי הסדר המבוקש
     if len(tasks) > STATUS_LIMIT:
         msg += f"<b>Page:</b> {page_no}/{pages} | <b>Tasks:</b> {tasks_no} | <b>Step:</b> {page_step}\n"
         buttons.data_button("⫷", f"status {sid} pre", position="header")
@@ -293,7 +292,6 @@ async def get_readable_message(sid, is_user, page_no=1, status="All", page_step=
     else:
         buttons.data_button("𝗧𝗷 𝗕𝗼𝘁𝘀", f"status {sid} ref", position="header")
     
-    # בניית התפריט עם 3 כפתורים בשורה
     button = buttons.build_menu(3)
     
     msg += f"\n┟ <b>CPU</b> → {cpu_percent()}% | <b>F</b> → {get_readable_file_size(disk_usage(DOWNLOAD_DIR).free)} [{round(100 - disk_usage(DOWNLOAD_DIR).percent, 1)}%]"
