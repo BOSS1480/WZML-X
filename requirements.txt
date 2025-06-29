@@ -21,7 +21,6 @@ jinja2
 lxml
 motor
 natsort
-oauth2client
 par2cmdline-turbo
 pillow
 psutil
