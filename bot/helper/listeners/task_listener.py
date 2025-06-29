@@ -425,8 +425,12 @@ class TaskListener(TaskConfig):
                 if self.is_super_chat:
                     await send_message(self.message, pmsg)
 
+            # Create View in Bot PM button
+            buttons = ButtonMaker()
+            buttons.url_button("📥 View in Bot PM", f"https://t.me/{TgClient.BNAME}")
+
             if not files and not self.is_super_chat:
-                await send_message(self.message, msg)
+                await send_message(self.message, msg, buttons.build_menu(1))
             else:
                 log_chat = self.user_id if self.bot_pm else self.message
                 msg += "〶 <b><u>Files List :</u></b>\n"
@@ -443,11 +447,11 @@ class TaskListener(TaskConfig):
                         fmsg += f"\n┖ <b>Get Media</b> → <a href='{flink}'>Store Link</a> | <a href='https://t.me/share/url?url={flink}'>Share Link</a>"
                     fmsg += "\n"
                     if len(fmsg.encode() + msg.encode()) > 4000:
-                        await send_message(log_chat, msg + fmsg)
+                        await send_message(log_chat, msg + fmsg, buttons.build_menu(1) if log_chat == self.message else None)
                         await sleep(1)
                         fmsg = ""
                 if fmsg != "":
-                    await send_message(log_chat, msg + fmsg)
+                    await send_message(log_chat, msg + fmsg, buttons.build_menu(1) if log_chat == self.message else None)
         else:
             msg += f"\n│\n┟ <b>Type</b> → {mime_type}"
             if mime_type == "Folder":
