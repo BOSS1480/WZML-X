@@ -319,7 +319,7 @@ async def get_user_settings(from_user, stype="main"):
             f"userset {user_id} tog USER_TOKENS {'f' if user_tokens else 't'}",
         )
 
-        buttons.data_button("⋞ ʙᴀᴄᴋ", f"userset {user_id} back", "footer")
+        buttons.data_button("Back", f"userset {user_id} back", "footer")
         buttons.data_button("Close", f"userset {user_id} close", "footer")
 
         def_cookies = user_dict.get("USE_DEFAULT_COOKIE", False)
