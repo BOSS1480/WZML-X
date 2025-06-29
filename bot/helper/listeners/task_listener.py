@@ -418,16 +418,16 @@ class TaskListener(TaskConfig):
                 msg += f"\n┠ <b>Corrupted Files</b> → {mime_type}"
             msg += f"\n┖ <b>Task By</b> → {self.tag}\n\n"
 
+            # יצירת כפתור View in Bot PM
+            buttons = ButtonMaker()
+            buttons.url_button("📥 View in Bot PM", f"https://t.me/{TgClient.BNAME}")
+
             if self.bot_pm:
                 pmsg = msg
                 pmsg += "〶 <b><u>Action Performed :</u></b>\n"
                 pmsg += "⋗ <i>File(s) have been sent to User PM</i>\n\n"
                 if self.is_super_chat:
-                    await send_message(self.message, pmsg)
-
-            # Create View in Bot PM button
-            buttons = ButtonMaker()
-            buttons.url_button("📥 View in Bot PM", f"https://t.me/{TgClient.BNAME}")
+                    await send_message(self.message, pmsg, buttons.build_menu(1))
 
             if not files and not self.is_super_chat:
                 await send_message(self.message, msg, buttons.build_menu(1))
@@ -439,7 +439,27 @@ class TaskListener(TaskConfig):
                     chat_id, msg_id = link.split("/")[-2:]
                     fmsg += f"{index}. <a href='{link}'>{name}</a>"
                     if Config.MEDIA_STORE and (
-          
+                        self.is_super_chat or Config.LEECH_DUMP_CHAT
+                    ):
+                        if chat_id.isdigit():
+                            chat_id = f"-100{chat_id}"
+                        flink = f"https://t.me/{TgClient.BNAME}?start={encode_slink('file' + chat_id + '&&' + msg_id)}"
+                        fmsg += f"\n┖ <b>Get Media</b> → <a href='{flink}'>Store Link</a> | <a href='https://t.me/share/url?url={flink}'>Share Link</a>"
+                    fmsg += "\n"
+                    if len(fmsg.encode() + msg.encode()) > 4000:
+                        await send_message(
+                            log_chat, 
+                            msg + fmsg, 
+                            buttons.build_menu(1) if log_chat == self.message else None
+                        )
+                        await sleep(1)
+                        fmsg = ""
+                if fmsg != "":
+                    await send_message(
+                        log_chat, 
+                        msg + fmsg, 
+                        buttons.build_menu(1) if log_chat == self.message else None
+                    )
         else:
             msg += f"\n│\n┟ <b>Type</b> → {mime_type}"
             if mime_type == "Folder":
