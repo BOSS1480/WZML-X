@@ -32,9 +32,9 @@ async def start(_, message):
     lang = Language()
     buttons = ButtonMaker()
     buttons.url_button(
-        lang.START_BUTTON1, "https://www.github.com/SilentDemonSD/WZML-X"
+        lang.START_BUTTON1, "https://t.me/Tj_Bots"
     )
-    buttons.url_button(lang.START_BUTTON2, "https://t.me/WZML_X")
+    buttons.url_button(lang.START_BUTTON2, "https://t.me/Tj_Bots_Admin")
     reply_markup = buttons.build_menu(2)
 
     if len(message.command) > 1 and message.command[1] == "wzmlx":
