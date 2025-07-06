@@ -92,7 +92,7 @@ async def start(_, message):
     elif Config.BOT_PM:
         await send_message(
             message,
-            "<i>Nᴏᴡ, Tʜɪs Bᴏᴛ Wɪʟʟ Sᴇɴᴅ Aʟʟ Yᴏᴜʀ Fɪʟᴇs Aɴᴅ Lɪɴᴋs Hᴇʀᴇ... </i>",
+            "<i><b>Nᴏᴡ, Tʜɪs Bᴏᴛ Wɪʟʟ Sᴇɴᴅ Aʟʟ Yᴏᴜʀ Fɪʟᴇs Aɴᴅ Lɪɴᴋs Hᴇʀᴇ...</b></i>",
             reply_markup,
         )
     else:
