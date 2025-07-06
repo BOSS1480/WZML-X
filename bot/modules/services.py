@@ -92,7 +92,7 @@ async def start(_, message):
     elif Config.BOT_PM:
         await send_message(
             message,
-            "<i>Now, Bot will send you all your files and links here. Start Using Now...</i>",
+            "<i>Nᴏᴡ, Tʜɪs Bᴏᴛ Wɪʟʟ Sᴇɴᴅ Aʟʟ Yᴏᴜʀ Fɪʟᴇs Aɴᴅ Lɪɴᴋs Hᴇʀᴇ... </i>",
             reply_markup,
         )
     else:
@@ -185,7 +185,7 @@ async def log_cb(_, query):
     message = query.message
     user_id = query.from_user.id
     if user_id != int(data[1]):
-        await query.answer("Not Yours!", show_alert=True)
+        await query.answer("𝙏𝙝𝙖𝙩'𝙨 𝙉𝙤𝙩 𝙔𝙤𝙪𝙧𝙨...😤", show_alert=True)
     elif data[2] == "close":
         await query.answer()
         await delete_message(message, message.reply_to_message)
