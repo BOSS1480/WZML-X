@@ -1113,7 +1113,7 @@ async def edit_user_settings(client, query):
 
     user_dict = user_data.get(user_id, {})
     if user_id != int(data[1]):
-        return await query.answer("Not Yours!", show_alert=True)
+        return await query.answer("𝙏𝙝𝙖𝙩'𝙨 𝙉𝙤𝙩 𝙔𝙤𝙪𝙧𝙨...😤", show_alert=True)
     elif data[2] == "setevent":
         await query.answer()
     elif data[2] in [
