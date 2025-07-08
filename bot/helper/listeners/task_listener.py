@@ -418,7 +418,7 @@ class TaskListener(TaskConfig):
                 msg += f"\n┠ <b>Corrupted Files</b> → {mime_type}"
             msg += f"\n┖ <b>Task By</b> → {self.tag}\n\n"
 
-            # יצירת כפתור View in Bot PM
+            # add button View in Bot PM
             buttons = ButtonMaker()
             buttons.url_button("📥 View in Bot PM", f"https://t.me/{TgClient.BNAME}")
 
