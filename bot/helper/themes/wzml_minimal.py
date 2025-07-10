@@ -2,10 +2,10 @@
 class WZMLStyle:
     # ----------------------
     # async def start(client, message) ---> __main__.py
-    ST_BN1_NAME = "Repo"
-    ST_BN1_URL = "https://www.github.com/weebzone/WZML-X"
-    ST_BN2_NAME = "Updates"
-    ST_BN2_URL = "https://t.me/WZML_X"
+    ST_BN1_NAME = "Tᴊ Bᴏᴛs 🤖"
+    ST_BN1_URL = "https://t.me/Tj_Bots"
+    ST_BN2_NAME = "Gʀᴏᴜᴘ 🧲"
+    ST_BN2_URL = "https://t.me/Tj_Leech_Group"
     ST_MSG = """<i>This bot can mirror all your links|files|torrents to Google Drive or any rclone cloud or to telegram or to ddl servers.</i>
 <b>Type {help_command} to get a list of available commands</b>"""
     ST_BOTPM = """<i>Now, This bot will send all your files and links here. Start Using ...</i>"""
@@ -222,7 +222,7 @@ class WZMLStyle:
 
     ###--------BUTTONS-------
     PREVIOUS = "⫷"
-    REFRESH = "ᴘᴀɢᴇs\n{Page}"
+    REFRESH = "𝗧𝗷 𝗕𝗼𝘁𝘀\n{Page}"
     NEXT = "⫸"
     # ---------------------
 
