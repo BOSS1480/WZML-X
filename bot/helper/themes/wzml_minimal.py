@@ -222,7 +222,7 @@ class WZMLStyle:
 
     ###--------BUTTONS-------
     PREVIOUS = "⫷"
-    REFRESH = "𝗧𝗷 𝗕𝗼𝘁𝘀\n{Page}"
+    REFRESH = "𝗧𝗷\n{Page}"
     NEXT = "⫸"
     # ---------------------
 
