@@ -64,7 +64,7 @@ async def select_type(_, query):
     key = message.reply_to_message.text.split(maxsplit=1)[1].strip()
     data = query.data.split()
     if user_id != int(data[1]):
-        return await query.answer(text="Not Yours!", show_alert=True)
+        return await query.answer(text="𝙏𝙝𝙖𝙩'𝙨 𝙉𝙤𝙩 𝙔𝙤𝙪𝙧𝙨...😤", show_alert=True)
     elif data[2] == "rec":
         await query.answer()
         isRecursive = not bool(eval(data[3]))
