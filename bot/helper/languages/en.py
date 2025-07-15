@@ -3,5 +3,5 @@ START_MSG = """
 
 Tʏᴘᴇ /{cmd} Tᴏ Gᴇᴛ A Lɪsᴛ Oғ Aʟʟ Aᴠᴀɪʟᴀʙʟᴇ Cᴏᴍᴍᴀɴᴅs</b></i>
 """
-START_BUTTON1 = "Tᴊ Bᴏᴛs 🤖"
+START_BUTTON1 = "Uᴘᴅᴀᴛᴇs 🗞️"
 START_BUTTON2 = "Gʀᴏᴜᴘ 🧲"
