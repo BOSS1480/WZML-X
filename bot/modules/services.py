@@ -34,7 +34,7 @@ async def start(_, message):
     buttons.url_button(
         lang.START_BUTTON1, "https://t.me/Tj_Bots"
     )
-    buttons.url_button(lang.START_BUTTON2, "https://t.me/Tj_Leech_Group")
+    buttons.url_button(lang.START_BUTTON2, "https://t.me/Leech_Mirror_il")
     reply_markup = buttons.build_menu(2)
 
     if len(message.command) > 1 and message.command[1] == "wzmlx":
@@ -92,7 +92,7 @@ async def start(_, message):
     elif Config.BOT_PM:
         await send_message(
             message,
-            "<i><b>Nᴏᴡ, Tʜɪs Bᴏᴛ Wɪʟʟ Sᴇɴᴅ Aʟʟ Yᴏᴜʀ Fɪʟᴇs Aɴᴅ Lɪɴᴋs Hᴇʀᴇ...</b></i>",
+            "<b><i>Nᴏᴡ, Tʜɪs Bᴏᴛ Wɪʟʟ Sᴇɴᴅ Aʟʟ Yᴏᴜʀ Fɪʟᴇs Aɴᴅ Lɪɴᴋs Hᴇʀᴇ...</i>\n\nPᴏᴡᴇʀᴇᴅ Bʏ: <a href="t.me/Tj_Bots"><b>Tᴊ Bᴏᴛs</b></a>🧑‍💻</b>",
             reply_markup,
         )
     else:
