@@ -288,7 +288,7 @@ async def get_user_settings(from_user, stype="main"):
             buttons.data_button(
                 "Reset All", f"userset {user_id} confirm_reset_all", position="footer"
             )
-        buttons.data_button("Close", f"userset {user_id} close", position="footer")
+        buttons.data_button("❌", f"userset {user_id} close", position="footer")
 
         text = f"""⌬ <b>User Settings :</b>
 │
@@ -319,8 +319,8 @@ async def get_user_settings(from_user, stype="main"):
             f"userset {user_id} tog USER_TOKENS {'f' if user_tokens else 't'}",
         )
 
-        buttons.data_button("Back", f"userset {user_id} back", "footer")
-        buttons.data_button("Close", f"userset {user_id} close", "footer")
+        buttons.data_button("◀️", f"userset {user_id} back", "footer")
+        buttons.data_button("❌", f"userset {user_id} close", "footer")
 
         def_cookies = user_dict.get("USE_DEFAULT_COOKIE", False)
         cookie_mode = "Owner's Cookie" if def_cookies else "User's Cookie"
@@ -591,8 +591,8 @@ async def get_user_settings(from_user, stype="main"):
             sd_msg = "Disabled"
 
         buttons.data_button("YT Up Tools", f"userset {user_id} yttools")
-        buttons.data_button("Back", f"userset {user_id} back", "footer")
-        buttons.data_button("Close", f"userset {user_id} close", "footer")
+        buttons.data_button("◀️", f"userset {user_id} back", "footer")
+        buttons.data_button("❌", f"userset {user_id} close", "footer")
         btns = buttons.build_menu(1)
 
         text = f"""⌬ <b>Mirror Settings :</b>
@@ -663,8 +663,8 @@ async def get_user_settings(from_user, stype="main"):
             )
             display_subtitle_meta = f"<code>{display_subtitle_meta}</code>"
 
-        buttons.data_button("Back", f"userset {user_id} back", "footer")
-        buttons.data_button("Close", f"userset {user_id} close", "footer")
+        buttons.data_button("◀️", f"userset {user_id} back", "footer")
+        buttons.data_button("❌", f"userset {user_id} close", "footer")
         btns = buttons.build_menu(2)
 
         text = f"""⌬ <b>FF Settings :</b>
@@ -770,8 +770,8 @@ async def get_user_settings(from_user, stype="main"):
             ),
         )
 
-        buttons.data_button("Back", f"userset {user_id} back mirror", "footer")
-        buttons.data_button("Close", f"userset {user_id} close", "footer")
+        buttons.data_button("◀️", f"userset {user_id} back mirror", "footer")
+        buttons.data_button("❌", f"userset {user_id} close", "footer")
         btns = buttons.build_menu(2)
 
         text = f"""⌬ <b>YouTube Tools Settings:</b>
@@ -1005,8 +1005,8 @@ async def get_menu(option, message, user_id):
         back_to = "advanced"
     else:
         back_to = "back"
-    buttons.data_button("Back", f"userset {user_id} {back_to}", "footer")
-    buttons.data_button("Close", f"userset {user_id} close", "footer")
+    buttons.data_button("◀️", f"userset {user_id} {back_to}", "footer")
+    buttons.data_button("❌", f"userset {user_id} close", "footer")
     val = user_dict.get(option)
     if option in file_dict and await aiopath.exists(file_dict[option]):
         val = "<b>Exists</b>"
@@ -1149,8 +1149,8 @@ async def edit_user_settings(client, query):
         buttons = ButtonMaker()
         text = user_settings_text[data[3]][2]
         buttons.data_button("Stop", f"userset {user_id} menu {data[3]} stop")
-        buttons.data_button("Back", f"userset {user_id} menu {data[3]}", "footer")
-        buttons.data_button("Close", f"userset {user_id} close", "footer")
+        buttons.data_button("◀️", f"userset {user_id} menu {data[3]}", "footer")
+        buttons.data_button("❌", f"userset {user_id} close", "footer")
         prompt_title = data[3].replace("_", " ").title()
         new_message_text = f"⌬ <b>Set {prompt_title}</b>\n\n{text}"
         await edit_message(message, new_message_text, buttons.build_menu(1))
@@ -1177,8 +1177,8 @@ async def edit_user_settings(client, query):
             text = f"Remove one or more key from {data[3]}. Example: key 1/key2/key 3. Timeout: 60 sec"
             func = remove_one
         buttons.data_button("Stop", f"userset {user_id} menu {data[3]} stop")
-        buttons.data_button("Back", f"userset {user_id} menu {data[3]}", "footer")
-        buttons.data_button("Close", f"userset {user_id} close", "footer")
+        buttons.data_button("◀️", f"userset {user_id} menu {data[3]}", "footer")
+        buttons.data_button("❌", f"userset {user_id} close", "footer")
         await edit_message(
             message, message.text.html + "\n\n" + text, buttons.build_menu(1)
         )
@@ -1219,7 +1219,7 @@ async def edit_user_settings(client, query):
         buttons = ButtonMaker()
         buttons.data_button("Yes", f"userset {user_id} do_reset_all yes")
         buttons.data_button("No", f"userset {user_id} do_reset_all no")
-        buttons.data_button("Close", f"userset {user_id} close", "footer")
+        buttons.data_button("❌", f"userset {user_id} close", "footer")
         text = "<i>Are you sure you want to reset all your user settings?</i>"
         await edit_message(query.message, text, buttons.build_menu(2))
     elif data[2] == "do_reset_all":
