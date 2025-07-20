@@ -290,7 +290,7 @@ async def get_readable_message(sid, is_user, page_no=1, status="All", page_step=
         buttons.data_button("𝗧𝗷 𝗕𝗼𝘁𝘀", f"status {sid} ref", position="header")
         buttons.data_button("⫸", f"status {sid} nex", position="header")
     else:
-        buttons.data_button("𝗧𝗷 𝗕𝗼𝘁𝘀", f"status {sid} ref", position="header")
+        buttons.data_button("↺", f"status {sid} ref", position="header")
     
     button = buttons.build_menu(3)
     
