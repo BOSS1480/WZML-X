@@ -216,8 +216,8 @@ async def get_stats(event, key="home"):
             
         btns.data_button("🔄 Refresh", f"stats {user_id} systasks", "header")
 
-    btns.data_button("Back", f"stats {user_id} home", "footer")
-    btns.data_button("Close", f"stats {user_id} close", "footer")
+    btns.data_button("◀️", f"stats {user_id} home", "footer")
+    btns.data_button("❌", f"stats {user_id} close", "footer")
     return msg, btns.build_menu(8 if key == "systasks" else 2)
 
 
