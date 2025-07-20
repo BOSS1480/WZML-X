@@ -286,7 +286,7 @@ async def get_user_settings(from_user, stype="main"):
             ]
         ):
             buttons.data_button(
-                "Reset All", f"userset {user_id} confirm_reset_all", position="footer"
+                "↺Reset All", f"userset {user_id} confirm_reset_all", position="footer"
             )
         buttons.data_button("❌", f"userset {user_id} close", position="footer")
 
@@ -467,8 +467,8 @@ async def get_user_settings(from_user, stype="main"):
         else:
             thumb_layout = "None"
 
-        buttons.data_button("Back", f"userset {user_id} back", "footer")
-        buttons.data_button("Close", f"userset {user_id} close", "footer")
+        buttons.data_button("◀️", f"userset {user_id} back", "footer")
+        buttons.data_button("❌", f"userset {user_id} close", "footer")
         btns = buttons.build_menu(2)
 
         text = f"""⌬ <b>Leech Settings :</b>
@@ -721,8 +721,8 @@ async def get_user_settings(from_user, stype="main"):
             "YT Cookie File", f"userset {user_id} menu USER_COOKIE_FILE"
         )
 
-        buttons.data_button("Back", f"userset {user_id} back", "footer")
-        buttons.data_button("Close", f"userset {user_id} close", "footer")
+        buttons.data_button("◀️", f"userset {user_id} back", "footer")
+        buttons.data_button("❌", f"userset {user_id} close", "footer")
         btns = buttons.build_menu(1)
 
         text = f"""⌬ <b>Advanced Settings :</b>
