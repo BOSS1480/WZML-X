@@ -97,6 +97,7 @@ async def status_pages(_, query):
                     status_dict[key]["page_no"] += status_dict[key]["page_step"]
                 else:
                     status_dict[key]["page_no"] -= status_dict[key]["page_step"]
+                await update_status_message(key, force=True)
     elif data[2] == "ps":
         async with task_dict_lock:
             if key in status_dict:
