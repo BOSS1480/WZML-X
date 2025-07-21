@@ -241,7 +241,7 @@ async def get_readable_message(sid, is_user, page_no=1, status="All", page_step=
             and task.listener.progress
         ):
             progress = task.progress()
-            msg += f"\n┟ {get_progress_bar_string(progress)} <i>{progress}</i>"
+            msg += f"\n┠ {get_progress_bar_string(progress)} <i>{progress}</i>"
             if task.listener.subname:
                 subsize = f" / {get_readable_file_size(task.listener.subsize)}"
                 ac = len(task.listener.files_to_proceed)
@@ -281,11 +281,11 @@ async def get_readable_message(sid, is_user, page_no=1, status="All", page_step=
         else:
             msg = f"No Active {status} Tasks!\n\n"
 
-    msg += "⌬ <b><u>Bot Stats:</u></b> "
+    msg += "⌬ <b><u>Bot Stats:</u></b>\n"
     buttons = ButtonMaker()
     
     if len(tasks) > STATUS_LIMIT:
-        msg += f"┟ <b>Page:</b>\n{page_no}/{pages} | <b>Tasks:</b> {tasks_no} | <b>Step:</b> {page_step}"
+        msg += f"┟ <b>Page:</b> {page_no}/{pages} | <b>Tasks:</b> {tasks_no} | <b>Step:</b> {page_step}"
         buttons.data_button("⫷", f"status {sid} pre", position="header")
         buttons.data_button(f"l̺͆ {page_no}/{pages} l̺͆", f"status {sid} ref", position="header")
         buttons.data_button("⫸", f"status {sid} nex", position="header")
