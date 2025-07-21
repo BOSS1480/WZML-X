@@ -285,7 +285,7 @@ async def get_readable_message(sid, is_user, page_no=1, status="All", page_step=
     buttons = ButtonMaker()
     
     if len(tasks) > STATUS_LIMIT:
-        msg += f"┟ <b>Page:</b> {page_no}/{pages} | <b>Tasks:</b> {tasks_no} | <b>Step:</b> {page_step}"
+        msg += f"┟ <b>Page:</b>\n{page_no}/{pages} | <b>Tasks:</b> {tasks_no} | <b>Step:</b> {page_step}"
         buttons.data_button("⫷", f"status {sid} pre", position="header")
         buttons.data_button(f"l̺͆ {page_no}/{pages} l̺͆", f"status {sid} ref", position="header")
         buttons.data_button("⫸", f"status {sid} nex", position="header")
