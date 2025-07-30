@@ -380,7 +380,7 @@ class TaskListener(TaskConfig):
         ):
             await database.rm_complete_task(self.message.link)
         msg = (
-            f"<pre><b><i>{escape(self.name)}</i></b></pre>\n│"
+            f"<pre><b><i>{escape(self.name)}</i></b></pre>"
             f"\n┟ <b>Task Size</b> → {get_readable_file_size(self.size)}"
             f"\n┠ <b>Time Taken</b> → {get_readable_time(time() - self.message.date.timestamp())}"
             f"\n┠ <b>In Mode</b> → {self.mode[0]}"
