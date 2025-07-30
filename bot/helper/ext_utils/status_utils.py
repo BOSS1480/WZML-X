@@ -227,7 +227,7 @@ async def get_readable_message(sid, is_user, page_no=1, status="All", page_step=
         else:
             tstatus = task.status()
         msg += f"<b>{index + start_position}.</b> "
-        msg += f"<blockquote><b><i>{escape(f'{task.name()}')}</i></b></blockquote>"
+        msg += f"<pre><b><i>{escape(f'{task.name()}')}</i></b></pre>"
         if task.listener.subname:
             msg += f"\n┖ <b>Sub Name</b> → <i>{task.listener.subname}</i>"
         elapsed = time() - task.listener.message.date.timestamp()
