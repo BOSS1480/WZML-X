@@ -380,11 +380,11 @@ class TaskListener(TaskConfig):
         ):
             await database.rm_complete_task(self.message.link)
         msg = (
-            f"┏ <b>𝐍𝐚𝐦𝐞 →<i>{escape(self.name)}</i></b>"
-            f"\n┠ <b>𝐓𝐚𝐬𝐤 𝐒𝐢𝐳𝐞</b> → {get_readable_file_size(self.size)}"
-            f"\n┠ <b>𝐓𝐢𝐦𝐞 𝐓𝐚𝐤𝐞𝐧</b> → {get_readable_time(time() - self.message.date.timestamp())}"
-            f"\n┠ <b>𝐈𝐧 𝐌𝐨𝐝𝐞</b> → {self.mode[0]}"
-            f"\n┠ <b>𝐎𝐮𝐭 𝐌𝐨𝐝𝐞</b> → {self.mode[1]}"
+            f"┏ <b>Name →<i>{escape(self.name)}</i></b>"
+            f"\n┠ <b>Task Size</b> → {get_readable_file_size(self.size)}"
+            f"\n┠ <b>Time Taken</b> → {get_readable_time(time() - self.message.date.timestamp())}"
+            f"\n┠ <b>In Mode</b> → {self.mode[0]}"
+            f"\n┠ <b>Out Mode</b> → {self.mode[1]}"
         )
         LOGGER.info(f"Task Done: {self.name}")
         if self.is_yt:
@@ -403,7 +403,7 @@ class TaskListener(TaskConfig):
                     f"{self.tag}\nYour video has been uploaded to YouTube successfully!"
                 )
 
-            msg += f"\n\n<b>𝐓𝐚𝐬𝐤 𝐁𝐲: </b>{self.tag}"
+            msg += f"\n\n<b>Task By: </b>{self.tag}"
 
             button = buttons.build_menu(1) if link else None
 
@@ -416,7 +416,7 @@ class TaskListener(TaskConfig):
             msg += f"\n<b>Total Files: </b>{folders}"
             if mime_type != 0:
                 msg += f"\n┠ <b>Corrupted Files</b> → {mime_type}"
-            msg += f"\n┖ <b>𝐓𝐚𝐬𝐤 𝐁𝐲</b> → {self.tag}\n\n"
+            msg += f"\n┖ <b>Task By</b> → {self.tag}\n\n"
 
             # add button View in Bot PM
             buttons = ButtonMaker()
